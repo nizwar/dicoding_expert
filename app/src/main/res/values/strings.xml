@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Katalog Movie</string>
+    <string name="str_gambar_poster">Gambar poster</string>
+    <string name="str_detail">Detail</string>
+    <string name="str_ellips">...</string>
+    <string name="str_cover_poster">Cover poster</string>
+    <string name="str_overview">Overview</string>
+    <string name="str_rilis_pada">Rilis pada :</string>
+    <string name="str_score">Score :</string>
+</resources>
