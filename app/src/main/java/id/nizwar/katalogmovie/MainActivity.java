@@ -30,9 +30,9 @@ import id.nizwar.katalogmovie.fragments.Movie;
 import id.nizwar.katalogmovie.fragments.TvShow;
 
 public class MainActivity extends AppCompatActivity {
-    ViewPager viewPager;
-    FragmentAdapter fragmentAdapter;
-    TabLayout tabLayout;
+    private ViewPager viewPager;
+    private FragmentAdapter fragmentAdapter;
+    private TabLayout tabLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -126,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.mnAboutMe:
                 new AlertDialog.Builder(this)
-                        .setTitle("Dicoding Submission 2")
+                        .setTitle("Dicoding Submission 3")
                         .setMessage("Ditulis oleh Moch. Nizwar Syafuan\nNote : Pesan ini emang sengaja ga di translate :p")
                         .setPositiveButton("Tutup", new DialogInterface.OnClickListener() {
                             @Override

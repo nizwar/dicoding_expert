@@ -15,6 +15,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
 import id.nizwar.katalogmovie.KatalogDetailActivity;
@@ -37,13 +39,18 @@ public class CustomRecyclerAdapter extends RecyclerView.Adapter<CustomRecyclerAd
         return new ListViewHolder(v);
     }
 
-    @SuppressLint("SetTextI18n")
+    @SuppressLint({"SetTextI18n", "CheckResult"})
     @Override
     public void onBindViewHolder(@NonNull ListViewHolder viewHolder, final int position) {
-        viewHolder.imgMovie.setImageResource(data.get(position).getPosterID());
+        Picasso.get().load("https://image.tmdb.org/t/p/w500" + data.get(position).getBackdropPath()).into(viewHolder.imgMovie);
         viewHolder.tvMovieTitle.setText(data.get(position).getTitle());
-        viewHolder.tvMovieOverview.setText(data.get(position).getOverview().substring(0, 61) + context.getString(R.string.str_ellips));
-        viewHolder.tvMovieScoreAndRelease.setText(context.getString(R.string.str_score) + data.get(position).getScore() + ", " + data.get(position).getRilis());
+        if (data.get(position).getOverview() != null)
+            if (data.get(position).getOverview().length() > 65) {
+                viewHolder.tvMovieOverview.setText(("" + data.get(position).getOverview()).substring(0, 61) + context.getString(R.string.str_ellips));
+            } else {
+                viewHolder.tvMovieOverview.setText(data.get(position).getOverview());
+            }
+        viewHolder.tvMovieScoreAndRelease.setText(context.getString(R.string.str_score) + data.get(position).getVoteAverage() + ", " + data.get(position).getReleaseDate());
         viewHolder.item.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
