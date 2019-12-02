@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Katalog Movie</string>
+    <string name="str_cover_poster">Kover poster</string>
+    <string name="str_detail">Detil</string>
+    <string name="str_gambar_poster">Gambar Poster</string>
+    <string name="str_overview">Ikhtisar</string>
+    <string name="str_rilis_pada">Dirilis pada :</string>
+    <string name="str_score">Skor :</string>
+    <string name="str_settings">Pengaturan</string>
+    <string name="str_movie"  >Film</string>
+    <string name="str_tv_show"  >Acara TV</string>
+    <string name="str_about_me">Tentang saya</string>
+    <string name="str_general_settings">Pengaturan Umum</string>
+    <string name="str_custom_language">Ganti Bahasa</string>
+    <string name="str_summary_language">Bahasa yang akan ditampilkan diaplikasi, termasuk Overview film akan diganti dengan bahasa yang terpilih</string>
+    <string name="str_language_app">Bahasa Aplikasi</string>
+    <string name="str_summary_custlanguage">Untuk mengganti bahasa, anda harus mengisi checkbox ini</string>
+
+</resources>

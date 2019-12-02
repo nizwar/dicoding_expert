@@ -1,10 +1,24 @@
 <resources>
     <string name="app_name">Katalog Movie</string>
-    <string name="str_gambar_poster">Gambar poster</string>
+    <string name="str_gambar_poster">Poster Image</string>
     <string name="str_detail">Detail</string>
-    <string name="str_ellips">...</string>
+    <string name="str_ellips" translatable="false">…</string>
     <string name="str_cover_poster">Cover poster</string>
     <string name="str_overview">Overview</string>
-    <string name="str_rilis_pada">Rilis pada :</string>
+    <string name="str_rilis_pada">Release on :</string>
     <string name="str_score">Score :</string>
+    <string name="str_movie"  >Movie</string>
+    <string name="str_tv_show"  >TV Show</string>
+    <string name="str_settings">Settings</string>
+    <string name="str_about_me">Aboout Me</string>
+
+    <string name="str_english" translatable="false">English</string>
+    <string name="str_indonesia" translatable="false">Bahasa Indonesia</string>
+    <string name="str_general_settings">General Settings</string>
+    <string name="str_summary_language">The language to be displayed is applied, including the movie overview will be replaced with the selected language</string>
+    <string name="str_language_app">Application Language</string>
+    <string name="str_summary_custlanguage">You can set application language if you check this box</string>
+    <string name="str_custom_language">Custom Language</string>
+
+
 </resources>
