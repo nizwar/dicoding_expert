@@ -15,6 +15,9 @@
     <string name="str_summary_language">Bahasa yang akan ditampilkan diaplikasi, termasuk Overview film akan diganti dengan bahasa yang terpilih</string>
     <string name="str_language_app">Bahasa Aplikasi</string>
     <string name="str_summary_custlanguage">Untuk mengganti bahasa, anda harus mengisi checkbox ini</string>
-    <string name="str_error_connection">Sepertinya terjadi sesuatu, mohon periksa koneksi internet anda</string>
+    <string name="str_error">Sepertinya terjadi sesuatu, mohon coba lagi</string>
+    <string name="str_favorite">Disukai</string>
+    <string name="str_beranda">Beranda</string>
+    <string name="str_empty">Tidak ada data yang bisa ditampilkan, izin bawa anjing keluar dulu ya :p</string>
 
 </resources>

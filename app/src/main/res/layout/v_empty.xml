@@ -10,14 +10,14 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:src="@drawable/ic_error"
+        android:src="@drawable/ic_empty"
         tools:ignore="ContentDescription" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="@string/str_error"
+        android:text="@string/str_empty"
         android:textAlignment="center"
         android:textSize="20sp" />
 

@@ -26,10 +26,12 @@ import id.nizwar.katalogmovie.models.Katalog;
 public class CustomRecyclerAdapter extends RecyclerView.Adapter<CustomRecyclerAdapter.ListViewHolder> {
     private Context context;
     private ArrayList<Katalog> data;
+    private int jenis;
 
-    public CustomRecyclerAdapter(Context context, ArrayList<Katalog> data) {
+    public CustomRecyclerAdapter(Context context, ArrayList<Katalog> data, int jenis) {
         this.context = context;
         this.data = data;
+        this.jenis = jenis;
     }
 
     @NonNull
@@ -56,6 +58,7 @@ public class CustomRecyclerAdapter extends RecyclerView.Adapter<CustomRecyclerAd
             public void onClick(View v) {
                 Intent intent = new Intent(context, KatalogDetailActivity.class);
                 intent.putExtra("katalog", (Parcelable) data.get(position));
+                intent.putExtra("jenis", jenis);
                 context.startActivity(intent);
             }
         });

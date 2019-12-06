@@ -1,5 +1,6 @@
 package id.nizwar.katalogmovie;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,7 +22,15 @@ public class SettingsActivity extends AppCompatActivity {
 
     @Override
     public boolean onSupportNavigateUp() {
+        startActivity(new Intent(this, MainActivity.class));
         finish();
         return super.onSupportNavigateUp();
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(this, MainActivity.class));
+        finish();
+        super.onBackPressed();
     }
 }

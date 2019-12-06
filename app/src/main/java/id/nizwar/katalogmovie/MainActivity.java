@@ -12,27 +12,20 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.viewpager.widget.ViewPager;
 
-import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.util.ArrayList;
 import java.util.Locale;
 
-import id.nizwar.katalogmovie.fragments.Movie;
-import id.nizwar.katalogmovie.fragments.TvShow;
+import id.nizwar.katalogmovie.fragments.Beranda;
+import id.nizwar.katalogmovie.fragments.Favorite;
 
 public class MainActivity extends AppCompatActivity {
-    private ViewPager viewPager;
-    private FragmentAdapter fragmentAdapter;
-    private TabLayout tabLayout;
+    private Beranda beranda;
+    private Favorite favorite;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,16 +33,34 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         setSupportActionBar((Toolbar) findViewById(R.id.appToolbar));
 
+        beranda = new Beranda();
+        favorite = new Favorite();
 
-        viewPager = findViewById(R.id.viewPager);
-        tabLayout = findViewById(R.id.tabLayout);
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragContainer, beranda).commit();
+
+        BottomNavigationView btmNav = findViewById(R.id.btmNav);
+        btmNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.mnBeranda:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragContainer, beranda).commit();
+                        break;
+                    case R.id.mnFavorite:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragContainer, favorite).commit();
+                        break;
+                }
+                return true;
+            }
+        });
 
         initEverything();
     }
 
     void initEverything() {
+        beranda = new Beranda();
+        favorite = new Favorite();
         initLanguage();
-        reloadAdapter();
     }
 
     void initLanguage() {
@@ -70,49 +81,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    void initFragAdapter() {
-        fragmentAdapter = new FragmentAdapter(getSupportFragmentManager(), 0);
-        fragmentAdapter.addFragments(getString(R.string.str_movie), new Movie());
-        fragmentAdapter.addFragments(getString(R.string.str_tv_show), new TvShow());
-    }
-
-    void reloadAdapter() {
-        initFragAdapter();
-        viewPager.setAdapter(null);
-        viewPager.setAdapter(fragmentAdapter);
-        tabLayout.setupWithViewPager(viewPager);
-    }
-
-    class FragmentAdapter extends FragmentPagerAdapter {
-        ArrayList<Fragment> fragments = new ArrayList<>();
-        ArrayList<String> fragTitle = new ArrayList<>();
-
-        FragmentAdapter(@NonNull FragmentManager fm, int behavior) {
-            super(fm, behavior);
-        }
-
-        @NonNull
-        @Override
-        public Fragment getItem(int position) {
-            return fragments.get(position);
-        }
-
-        @Override
-        public int getCount() {
-            return fragments.size();
-        }
-
-        void addFragments(String title, Fragment fragment) {
-            fragments.add(fragment);
-            fragTitle.add(title);
-        }
-
-        @Nullable
-        @Override
-        public CharSequence getPageTitle(int position) {
-            return fragTitle.get(position);
-        }
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -137,15 +105,11 @@ public class MainActivity extends AppCompatActivity {
                         .create().show();
                 break;
             case R.id.mnSettings:
-                startActivityForResult(new Intent(this, SettingsActivity.class), 1);
+                startActivity(new Intent(this, SettingsActivity.class));
+                finish();
                 break;
         }
         return false;
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        initEverything();
-        super.onActivityResult(requestCode, resultCode, data);
-    }
 }

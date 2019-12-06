@@ -1,23 +1,23 @@
 package id.nizwar.katalogmovie.models;
 
 public abstract class Katalog {
-    double popularity;
+//    double popularity;
     String releaseDate;
     String overview;
     double voteAverage;
     String title;
     String originalTitle;
-    String originalLanguage;
+//    String originalLanguage;
     String backdropPath;
-    boolean adult;
+//    boolean adult;
     int id;
     String posterPath;
-    boolean video;
-    int voteCount;
+//    boolean video;
+//    int voteCount;
 
-    public double getPopularity() {
-        return popularity;
-    }
+//    public double getPopularity() {
+//        return popularity;
+//    }
 
     public String getReleaseDate() {
         return releaseDate;
@@ -39,17 +39,17 @@ public abstract class Katalog {
         return originalTitle;
     }
 
-    public String getOriginalLanguage() {
-        return originalLanguage;
-    }
+//    public String getOriginalLanguage() {
+//        return originalLanguage;
+//    }
 
     public String getBackdropPath() {
         return backdropPath;
     }
 
-    public boolean getAdult() {
-        return adult;
-    }
+//    public boolean getAdult() {
+//        return adult;
+//    }
 
     public int getId() {
         return id;
@@ -59,13 +59,13 @@ public abstract class Katalog {
         return posterPath;
     }
 
-    public boolean getVideo() {
-        return video;
-    }
-
-    public int getVoteCount() {
-        return voteCount;
-    }
+//    public boolean getVideo() {
+//        return video;
+//    }
+//
+//    public int getVoteCount() {
+//        return voteCount;
+//    }
 
 //    private int posterID, score;
 //    private String title, overview, rilis;

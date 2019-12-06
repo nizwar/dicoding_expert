@@ -1,7 +1,6 @@
-package id.nizwar.katalogmovie.fragments;
+package id.nizwar.katalogmovie.fragments.beranda;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,6 +36,7 @@ public class Movie extends Fragment {
     private ProgressBar pbLoading;
     private RecyclerView recMovie;
     private LinearLayout lnError;
+    private LinearLayout lnEmpty;
     private SwipeRefreshLayout swiper;
 
     @Nullable
@@ -46,11 +46,13 @@ public class Movie extends Fragment {
         recMovie = view.findViewById(R.id.recList);
         pbLoading = view.findViewById(R.id.pbLoading);
         lnError = view.findViewById(R.id.lnError);
+        lnEmpty = view.findViewById(R.id.lnEmpty);
 
         recMovie.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
 
         recMovie.setVisibility(View.GONE);
         lnError.setVisibility(View.GONE);
+        lnEmpty.setVisibility(View.GONE);
 
         swiper = view.findViewById(R.id.swiper);
         swiper.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -69,6 +71,7 @@ public class Movie extends Fragment {
         lnError.setVisibility(View.GONE);
         pbLoading.setVisibility(View.VISIBLE);
         recMovie.setVisibility(View.GONE);
+        lnEmpty.setVisibility(View.GONE);
         StringRequest request = new StringRequest(
                 Request.Method.GET,
                 "https://api.themoviedb.org/3/discover/movie?api_key=" + BuildConfig.TMDB_API_KEY + "&language=en-US",
@@ -76,7 +79,6 @@ public class Movie extends Fragment {
                     @Override
                     public void onResponse(String response) {
                         swiper.setRefreshing(false);
-                        Log.e("Response", response );
                         try {
                             JSONObject jsonObject = new JSONObject(response);
                             JSONArray jsResults = jsonObject.getJSONArray("results");
@@ -85,14 +87,21 @@ public class Movie extends Fragment {
                                 listMovie.add(new KatalogMovieAttrb(jsResults.getJSONObject(i)));
                             }
                             if (getActivity() != null)
-                                recMovie.setAdapter(new CustomRecyclerAdapter(getActivity(), listMovie));
+                                recMovie.setAdapter(new CustomRecyclerAdapter(getActivity(), listMovie, 0));
                             lnError.setVisibility(View.GONE);
                             pbLoading.setVisibility(View.GONE);
-                            recMovie.setVisibility(View.VISIBLE);
+                            if(jsResults.length() > 0 ) {
+                                lnEmpty.setVisibility(View.GONE);
+                                recMovie.setVisibility(View.VISIBLE);
+                            }else{
+                                lnEmpty.setVisibility(View.VISIBLE);
+                                recMovie.setVisibility(View.GONE);
+                            }
                         } catch (JSONException e) {
                             lnError.setVisibility(View.VISIBLE);
                             pbLoading.setVisibility(View.GONE);
                             recMovie.setVisibility(View.GONE);
+                            lnEmpty.setVisibility(View.GONE);
                         }
                     }
                 },
@@ -102,6 +111,7 @@ public class Movie extends Fragment {
                         swiper.setRefreshing(false);
                         lnError.setVisibility(View.VISIBLE);
                         pbLoading.setVisibility(View.GONE);
+                        lnEmpty.setVisibility(View.GONE);
                         recMovie.setVisibility(View.GONE);
                     }
                 }

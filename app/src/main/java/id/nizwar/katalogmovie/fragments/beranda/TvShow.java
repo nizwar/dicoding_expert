@@ -1,4 +1,4 @@
-package id.nizwar.katalogmovie.fragments;
+package id.nizwar.katalogmovie.fragments.beranda;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -36,6 +36,7 @@ public class TvShow extends Fragment {
     private ProgressBar pbLoading;
     private RecyclerView recMovie;
     private LinearLayout lnError;
+    private LinearLayout lnEmpty;
     private SwipeRefreshLayout swiper;
 
     @Nullable
@@ -45,11 +46,13 @@ public class TvShow extends Fragment {
         recMovie = view.findViewById(R.id.recList);
         pbLoading = view.findViewById(R.id.pbLoading);
         lnError = view.findViewById(R.id.lnError);
+        lnEmpty = view.findViewById(R.id.lnEmpty);
 
         recMovie.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
 
         recMovie.setVisibility(View.GONE);
         lnError.setVisibility(View.GONE);
+        lnEmpty.setVisibility(View.GONE);
 
         swiper = view.findViewById(R.id.swiper);
         swiper.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -68,6 +71,7 @@ public class TvShow extends Fragment {
         lnError.setVisibility(View.GONE);
         pbLoading.setVisibility(View.VISIBLE);
         recMovie.setVisibility(View.GONE);
+        lnEmpty.setVisibility(View.GONE);
         StringRequest request = new StringRequest(
                 Request.Method.GET,
                 "https://api.themoviedb.org/3/discover/tv?api_key=" + BuildConfig.TMDB_API_KEY + "&language=en-US",
@@ -83,12 +87,20 @@ public class TvShow extends Fragment {
                                 listMovie.add(new KatalogTvShowAttrb(jsResults.getJSONObject(i)));
                             }
                             if (getActivity() != null)
-                                recMovie.setAdapter(new CustomRecyclerAdapter(getActivity(), listMovie));
+                                recMovie.setAdapter(new CustomRecyclerAdapter(getActivity(), listMovie,1));
+
                             lnError.setVisibility(View.GONE);
                             pbLoading.setVisibility(View.GONE);
-                            recMovie.setVisibility(View.VISIBLE);
+                            if(jsResults.length() > 0 ) {
+                                lnEmpty.setVisibility(View.GONE);
+                                recMovie.setVisibility(View.VISIBLE);
+                            }else{
+                                lnEmpty.setVisibility(View.VISIBLE);
+                                recMovie.setVisibility(View.GONE);
+                            }
                         } catch (JSONException e) {
                             lnError.setVisibility(View.VISIBLE);
+                            lnEmpty.setVisibility(View.GONE);
                             pbLoading.setVisibility(View.GONE);
                             recMovie.setVisibility(View.GONE);
                         }
@@ -99,6 +111,7 @@ public class TvShow extends Fragment {
                     public void onErrorResponse(VolleyError error) {
                         swiper.setRefreshing(false);
                         lnError.setVisibility(View.VISIBLE);
+                        lnEmpty.setVisibility(View.GONE);
                         pbLoading.setVisibility(View.GONE);
                         recMovie.setVisibility(View.GONE);
                     }

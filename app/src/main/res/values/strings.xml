@@ -16,7 +16,10 @@
     <string name="str_language_app">Application Language</string>
     <string name="str_summary_custlanguage">You can set application language if you check this box</string>
     <string name="str_custom_language">Custom Language</string>
-    <string name="str_error_connection">Something happen, please try again</string>
+    <string name="str_error">Something happen, please try again</string>
+    <string name="str_favorite">Favorite</string>
+    <string name="str_beranda">Home</string>
+    <string name="str_empty">There is no data that can be displayed</string>
 
 
 </resources>

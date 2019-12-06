@@ -10,6 +10,7 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:elevation="0dp"
         android:background="@color/colorPrimary">
 
         <androidx.appcompat.widget.Toolbar
@@ -20,23 +21,23 @@
             app:layout_scrollFlags="scroll|enterAlways"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
             app:title="@string/app_name" />
-
-
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tabLayout"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            app:tabTextColor="#fff">
-
-
-        </com.google.android.material.tabs.TabLayout>
-
     </com.google.android.material.appbar.AppBarLayout>
 
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/viewPager"
+    <FrameLayout
+        android:id="@+id/fragContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior" />
+        android:layout_marginBottom="?attr/actionBarSize"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"/>
 
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/btmNav"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/bottom_menu"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+        app:elevation="10dp"
+        android:background="#fff" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
