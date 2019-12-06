@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Favorite Movie</string>
+    <string name="str_gambar_poster">Poster Image</string>
+    <string name="str_detail">Detail</string>
+    <string name="str_ellips" translatable="false">…</string>
+    <string name="str_overview">Overview</string>
+    <string name="str_rilis_pada">Release on :</string>
+    <string name="str_score">Score :</string>
+    <string name="str_movie">Movie</string>
+    <string name="str_tv_show">TV Show</string>
+
+    <string name="str_error">Something happen, please try again</string>
+    <string name="str_favorite">Favorite</string>
+    <string name="str_empty">There is no data that can be displayed</string>
+</resources>

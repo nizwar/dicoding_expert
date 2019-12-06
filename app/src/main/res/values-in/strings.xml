@@ -19,5 +19,16 @@
     <string name="str_favorite">Disukai</string>
     <string name="str_beranda">Beranda</string>
     <string name="str_empty">Tidak ada data yang bisa ditampilkan, izin bawa anjing keluar dulu ya :p</string>
+<<<<<<< HEAD
+    <string name="cari">Cari</string>
+    <string name="str_releasereminder_summary">Memberi informasi tentang movie yang baru saja rilis</string>
+    <string name="str_dailyreminder_summary">Memberi informasi tentang movie yang rilis pada hari ini</string>
+    <string name="str_dailyreminder">Pengingat Harian</string>
+    <string name="str_releasereminder">Pengingat Rilis</string>
+    <string name="str_releasetoday">Dirilis!</string>
+    <string name="str_dailyrminder_title">Hai, Ada yang baru nih!</string>
+    <string name="str_dailyrminder_text">Apa? Coba cek deh! Siapa tau ada movie yang lagi kamu tungguin</string>
+=======
 
+>>>>>>> f06c9266104ac9b6156f5b30189cda8740b14d76
 </resources>

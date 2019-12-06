@@ -4,6 +4,10 @@
     package="id.nizwar.katalogmovie">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.SET_ALARM" />
+    <permission android:name="id.nizwar.katalogmovie.READ_DATABASE"/>
+    <permission android:name="id.nizwar.katalogmovie.WRITE_DATABASE"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,6 +16,27 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
+        <provider
+            android:name=".models.CPFavorite"
+            android:authorities="id.nizwar.katalogmovie.katalog"
+            android:readPermission="id.nizwar.katalogmovie.READ_DATABASE"
+            android:writePermission="id.nizwar.katalogmovie.WRITE_DATABASE"
+            android:enabled="true"
+            android:exported="true"/>
+
+        <receiver
+            android:name=".broadcast.DailyReminder"
+            android:enabled="true"
+            android:exported="true"
+            tools:ignore="ExportedReceiver" />
+
+        <receiver
+            android:name=".broadcast.ReleaseToday"
+            android:enabled="true"
+            android:exported="true"
+            tools:ignore="ExportedReceiver" />
+
+        <activity android:name=".PencarianActivity" />
         <activity android:name=".SettingsActivity" />
         <activity android:name=".KatalogDetailActivity" />
         <activity
@@ -23,6 +48,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <receiver android:name=".widgets.FavoriteWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_favorite" />
+        </receiver>
+
+        <service
+            android:name=".widgets.StackWidgetService"
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
     </application>
 
 </manifest>

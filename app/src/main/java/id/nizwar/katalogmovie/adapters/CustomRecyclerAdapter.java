@@ -19,6 +19,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
+import id.nizwar.katalogmovie.helpers.Env;
 import id.nizwar.katalogmovie.KatalogDetailActivity;
 import id.nizwar.katalogmovie.R;
 import id.nizwar.katalogmovie.models.Katalog;
@@ -44,7 +45,7 @@ public class CustomRecyclerAdapter extends RecyclerView.Adapter<CustomRecyclerAd
     @SuppressLint({"SetTextI18n", "CheckResult"})
     @Override
     public void onBindViewHolder(@NonNull ListViewHolder viewHolder, final int position) {
-        Picasso.get().load("https://image.tmdb.org/t/p/w500" + data.get(position).getBackdropPath()).into(viewHolder.imgMovie);
+        Picasso.get().load(Env.IMG_URL500 + data.get(position).getBackdropPath()).into(viewHolder.imgMovie);
         viewHolder.tvMovieTitle.setText(data.get(position).getTitle());
         if (data.get(position).getOverview() != null)
             if (data.get(position).getOverview().length() > 65) {

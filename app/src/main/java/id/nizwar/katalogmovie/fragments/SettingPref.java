@@ -13,6 +13,8 @@ import androidx.annotation.Nullable;
 
 import java.util.Locale;
 
+import id.nizwar.katalogmovie.broadcast.DailyReminder;
+import id.nizwar.katalogmovie.broadcast.ReleaseToday;
 import id.nizwar.katalogmovie.R;
 
 @SuppressLint({"ValidFragment"})
@@ -26,6 +28,12 @@ public class SettingPref extends PreferenceFragment {
         preferenceChangeListener = new SharedPreferences.OnSharedPreferenceChangeListener() {
             @Override
             public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+                if (key.equals("daily_reminder")) {
+                    DailyReminder.setDailyReminder(getActivity(), sharedPreferences.getBoolean(key, false));
+                }
+                if (key.equals("release_reminder")) {
+                    ReleaseToday.setReleaseToday(getActivity(), sharedPreferences.getBoolean(key, false));
+                }
                 initLanguage();
                 getPreferenceScreen().removeAll();
                 addPreferencesFromResource(R.xml.spref);

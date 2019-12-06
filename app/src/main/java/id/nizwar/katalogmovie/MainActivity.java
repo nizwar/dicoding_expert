@@ -6,6 +6,8 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.HandlerThread;
 import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -22,6 +24,11 @@ import java.util.Locale;
 
 import id.nizwar.katalogmovie.fragments.Beranda;
 import id.nizwar.katalogmovie.fragments.Favorite;
+<<<<<<< HEAD
+import id.nizwar.katalogmovie.helpers.DataObserver;
+import id.nizwar.katalogmovie.models.CUFavorite;
+=======
+>>>>>>> f06c9266104ac9b6156f5b30189cda8740b14d76
 
 public class MainActivity extends AppCompatActivity {
     private Beranda beranda;
@@ -54,6 +61,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+<<<<<<< HEAD
+        HandlerThread handlerThread = new HandlerThread("DataObserver");
+        handlerThread.start();
+        Handler handler = new Handler(handlerThread.getLooper());
+        DataObserver myObserver = new DataObserver(handler);
+        this.getContentResolver().registerContentObserver(CUFavorite.FavoriteColumns.CONTENT_URI, true, myObserver);
+=======
+>>>>>>> f06c9266104ac9b6156f5b30189cda8740b14d76
         initEverything();
     }
 
@@ -94,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.mnAboutMe:
                 new AlertDialog.Builder(this)
-                        .setTitle("Dicoding Submission 3")
+                        .setTitle("Dicoding Submission Akhir")
                         .setMessage("Ditulis oleh Moch. Nizwar Syafuan\nNote : Pesan ini emang sengaja ga di translate :p")
                         .setPositiveButton("Tutup", new DialogInterface.OnClickListener() {
                             @Override

@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory android:title="@string/str_general_settings">
+        <SwitchPreference
+            android:key="release_reminder"
+            android:summary="@string/str_releasereminder_summary"
+            android:title="@string/str_releasereminder" />
+        <SwitchPreference
+            android:key="daily_reminder"
+            android:summary="@string/str_dailyreminder_summary"
+            android:title="@string/str_dailyreminder" />
         <CheckBoxPreference
             android:key="custom_language"
             android:summary="@string/str_summary_custlanguage"

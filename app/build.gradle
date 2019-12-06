@@ -10,7 +10,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        buildConfigField("String" , "TMDB_API_KEY" , '"f9da47138e4e38a666a8914fbe19ca16"')
+        buildConfigField("String", "TMDB_API_KEY", '"f9da47138e4e38a666a8914fbe19ca16"')
     }
     buildTypes {
         release {
@@ -20,7 +20,7 @@ android {
     }
     compileOptions {
         sourceCompatibility = 1.7
-        targetCompatibility = 1.7
+        targetCompatibility = 1.8
     }
 }
 
