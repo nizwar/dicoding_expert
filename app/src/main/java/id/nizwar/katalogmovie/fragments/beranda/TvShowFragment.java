@@ -52,7 +52,6 @@ public class TvShowFragment extends Fragment {
 
         recMovie.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
 
-<<<<<<< HEAD:app/src/main/java/id/nizwar/katalogmovie/fragments/beranda/TvShowFragment.java
         view.findViewById(R.id.floatButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,11 +61,6 @@ public class TvShowFragment extends Fragment {
                 startActivity(intent);
             }
         });
-=======
-        recMovie.setVisibility(View.GONE);
-        lnError.setVisibility(View.GONE);
-        lnEmpty.setVisibility(View.GONE);
->>>>>>> f06c9266104ac9b6156f5b30189cda8740b14d76:app/src/main/java/id/nizwar/katalogmovie/fragments/beranda/TvShow.java
 
         swiper = view.findViewById(R.id.swiper);
         swiper.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -82,14 +76,7 @@ public class TvShowFragment extends Fragment {
     }
 
     private void getTVs() {
-<<<<<<< HEAD:app/src/main/java/id/nizwar/katalogmovie/fragments/beranda/TvShowFragment.java
         showLoading();
-=======
-        lnError.setVisibility(View.GONE);
-        pbLoading.setVisibility(View.VISIBLE);
-        recMovie.setVisibility(View.GONE);
-        lnEmpty.setVisibility(View.GONE);
->>>>>>> f06c9266104ac9b6156f5b30189cda8740b14d76:app/src/main/java/id/nizwar/katalogmovie/fragments/beranda/TvShow.java
         StringRequest request = new StringRequest(
                 Request.Method.GET,
                 Env.BASE_URL("tv", null),
@@ -107,7 +94,6 @@ public class TvShowFragment extends Fragment {
                             if (getActivity() != null)
                                 recMovie.setAdapter(new CustomRecyclerAdapter(getActivity(), listMovie,1));
 
-<<<<<<< HEAD:app/src/main/java/id/nizwar/katalogmovie/fragments/beranda/TvShowFragment.java
                             if(jsResults.length() > 0 ) {
                                 showList();
                             }else{
@@ -115,37 +101,13 @@ public class TvShowFragment extends Fragment {
                             }
                         } catch (JSONException e) {
                             showError();
-=======
-                            lnError.setVisibility(View.GONE);
-                            pbLoading.setVisibility(View.GONE);
-                            if(jsResults.length() > 0 ) {
-                                lnEmpty.setVisibility(View.GONE);
-                                recMovie.setVisibility(View.VISIBLE);
-                            }else{
-                                lnEmpty.setVisibility(View.VISIBLE);
-                                recMovie.setVisibility(View.GONE);
-                            }
-                        } catch (JSONException e) {
-                            lnError.setVisibility(View.VISIBLE);
-                            lnEmpty.setVisibility(View.GONE);
-                            pbLoading.setVisibility(View.GONE);
-                            recMovie.setVisibility(View.GONE);
->>>>>>> f06c9266104ac9b6156f5b30189cda8740b14d76:app/src/main/java/id/nizwar/katalogmovie/fragments/beranda/TvShow.java
                         }
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-<<<<<<< HEAD:app/src/main/java/id/nizwar/katalogmovie/fragments/beranda/TvShowFragment.java
                         showError();
-=======
-                        swiper.setRefreshing(false);
-                        lnError.setVisibility(View.VISIBLE);
-                        lnEmpty.setVisibility(View.GONE);
-                        pbLoading.setVisibility(View.GONE);
-                        recMovie.setVisibility(View.GONE);
->>>>>>> f06c9266104ac9b6156f5b30189cda8740b14d76:app/src/main/java/id/nizwar/katalogmovie/fragments/beranda/TvShow.java
                     }
                 }
         );

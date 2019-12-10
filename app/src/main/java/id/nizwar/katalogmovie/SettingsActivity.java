@@ -22,12 +22,7 @@ public class SettingsActivity extends AppCompatActivity {
 
     @Override
     public boolean onSupportNavigateUp() {
-<<<<<<< HEAD
         onBackPressed();
-=======
-        startActivity(new Intent(this, MainActivity.class));
-        finish();
->>>>>>> f06c9266104ac9b6156f5b30189cda8740b14d76
         return super.onSupportNavigateUp();
     }
 

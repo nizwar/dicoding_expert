@@ -17,26 +17,16 @@ import com.google.android.material.tabs.TabLayout;
 import java.util.ArrayList;
 
 import id.nizwar.katalogmovie.R;
-<<<<<<< HEAD
 import id.nizwar.katalogmovie.fragments.favorite.MovieFragment;
 import id.nizwar.katalogmovie.fragments.favorite.TvShowFragment;
-=======
-import id.nizwar.katalogmovie.fragments.favorite.Movie;
-import id.nizwar.katalogmovie.fragments.favorite.TvShow;
->>>>>>> f06c9266104ac9b6156f5b30189cda8740b14d76
 
 public class Favorite extends Fragment {
 
     private ViewPager viewPager;
     private FragmentAdapter fragmentAdapter;
     private TabLayout tabLayout;
-<<<<<<< HEAD
     private MovieFragment movie;
     private TvShowFragment tvShow;
-=======
-    private Movie movie;
-    private TvShow tvShow;
->>>>>>> f06c9266104ac9b6156f5b30189cda8740b14d76
 
     @Nullable
     @Override
@@ -44,13 +34,8 @@ public class Favorite extends Fragment {
         View view = inflater.inflate(R.layout.frag_container, container, false);
         viewPager = view.findViewById(R.id.viewPager);
         tabLayout = view.findViewById(R.id.tabLayout);
-<<<<<<< HEAD
         movie = new MovieFragment();
         tvShow = new TvShowFragment();
-=======
-        movie = new Movie();
-        tvShow = new TvShow();
->>>>>>> f06c9266104ac9b6156f5b30189cda8740b14d76
 
         reloadAdapter();
         return view;

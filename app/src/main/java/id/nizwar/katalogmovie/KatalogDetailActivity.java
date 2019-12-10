@@ -38,7 +38,6 @@ public class KatalogDetailActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         favorite = new SQFavorite(this);
-<<<<<<< HEAD
         int id_fav = getIntent().getIntExtra("id_favorite", -1);
         if (id_fav != -1) {
             if (favorite.isAvailable(favorite.getReadableDatabase(), id_fav)) {
@@ -59,24 +58,14 @@ public class KatalogDetailActivity extends AppCompatActivity {
     }
 
     public void initialize() {
-=======
-
-        data = getIntent().getParcelableExtra("katalog");
-        jenis = getIntent().getIntExtra("jenis", 0);
->>>>>>> f06c9266104ac9b6156f5b30189cda8740b14d76
         if (data != null) {
             ((TextView) findViewById(R.id.tvTitle)).setText(data.getTitle());
             ((TextView) findViewById(R.id.tvOverview)).setText(data.getOverview());
             ((TextView) findViewById(R.id.tvRilis)).setText(data.getReleaseDate());
             ((TextView) findViewById(R.id.tvScore)).setText(String.valueOf(data.getVoteAverage()));
 
-<<<<<<< HEAD
             Picasso.get().load(Env.IMG_URL780 + data.getPosterPath()).into((ImageView) findViewById(R.id.imgCover));
             Picasso.get().load(Env.IMG_URL500 + data.getPosterPath()).into((ImageView) findViewById(R.id.gbrPoster));
-=======
-            Picasso.get().load("https://image.tmdb.org/t/p/w780" + data.getPosterPath()).into((ImageView) findViewById(R.id.imgCover));
-            Picasso.get().load("https://image.tmdb.org/t/p/w500" + data.getPosterPath()).into((ImageView) findViewById(R.id.gbrPoster));
->>>>>>> f06c9266104ac9b6156f5b30189cda8740b14d76
         } else {
             Toast.makeText(this, getString(R.string.str_error), Toast.LENGTH_SHORT).show();
             finish();
@@ -92,7 +81,6 @@ public class KatalogDetailActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.favorite_menu, menu);
-<<<<<<< HEAD
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
             Cursor cursor = getContentResolver()
                     .query(
@@ -108,17 +96,11 @@ public class KatalogDetailActivity extends AppCompatActivity {
             }
             cursor.close();
         }
-=======
-        if (favorite.isAvailable(favorite.getReadableDatabase(), data.getId()))
-            menu.getItem(0).setIcon(R.drawable.ic_favorite);
-
->>>>>>> f06c9266104ac9b6156f5b30189cda8740b14d76
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-<<<<<<< HEAD
         if (item.getItemId() == R.id.mnFavorite)
             if (favorite.isAvailable(favorite.getReadableDatabase(), data.getId())) {
                 getContentResolver().delete(CUFavorite.FavoriteColumns.CONTENT_URI
@@ -141,15 +123,6 @@ public class KatalogDetailActivity extends AppCompatActivity {
                 getContentResolver().insert(CUFavorite.FavoriteColumns.CONTENT_URI, contentValues);
 
 //                favorite.setFavorite(data, jenis);
-=======
-
-        if (item.getItemId() == R.id.mnFavorite)
-            if (favorite.isAvailable(favorite.getReadableDatabase(), data.getId())) {
-                favorite.deleteFavorite(data.getId());
-                item.setIcon(R.drawable.ic_favorite_empty);
-            } else {
-                favorite.setFavorite(data, jenis);
->>>>>>> f06c9266104ac9b6156f5b30189cda8740b14d76
                 item.setIcon(R.drawable.ic_favorite);
             }
         return super.onOptionsItemSelected(item);

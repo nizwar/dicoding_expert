@@ -8,19 +8,7 @@
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swiper"
         android:layout_width="match_parent"
-<<<<<<< HEAD
         android:layout_height="wrap_content">
-=======
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <include
-            android:id="@+id/lnError"
-            layout="@layout/v_error" />
-        <include
-            android:id="@+id/lnEmpty"
-            layout="@layout/v_empty" />
->>>>>>> f06c9266104ac9b6156f5b30189cda8740b14d76
 
         <LinearLayout
             android:layout_width="match_parent"

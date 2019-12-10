@@ -24,6 +24,7 @@ import id.nizwar.favoritemovie.models.CUFavorite;
 public class MainActivity extends AppCompatActivity {
 
     private ViewPager viewPager;
+    private FragmentAdapter fragmentAdapter;
     private TabLayout tabLayout;
     private MovieFragment movie;
     private TvShowFragment tvShow;
@@ -49,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void initFragAdapter() {
-        FragmentAdapter fragmentAdapter = new FragmentAdapter(getSupportFragmentManager(), 0);
+        fragmentAdapter = new FragmentAdapter(getSupportFragmentManager(), 0);
         fragmentAdapter.addFragments(getString(R.string.str_movie), movie);
         fragmentAdapter.addFragments(getString(R.string.str_tv_show), tvShow);
         viewPager.setAdapter(fragmentAdapter);

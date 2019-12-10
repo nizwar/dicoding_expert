@@ -5,38 +5,19 @@ import android.database.Cursor;
 import java.util.ArrayList;
 
 public abstract class Katalog {
-<<<<<<< HEAD
-=======
-//    double popularity;
->>>>>>> f06c9266104ac9b6156f5b30189cda8740b14d76
     String releaseDate;
     String overview;
     double voteAverage;
     String title;
     String originalTitle;
-<<<<<<< HEAD
     String backdropPath;
-=======
-//    String originalLanguage;
-    String backdropPath;
-//    boolean adult;
->>>>>>> f06c9266104ac9b6156f5b30189cda8740b14d76
     int id;
     int jenis;
     String posterPath;
-<<<<<<< HEAD
 
     public int getJenis() {
         return jenis;
     }
-=======
-//    boolean video;
-//    int voteCount;
-
-//    public double getPopularity() {
-//        return popularity;
-//    }
->>>>>>> f06c9266104ac9b6156f5b30189cda8740b14d76
 
     public String getReleaseDate() {
         return releaseDate;
@@ -58,24 +39,10 @@ public abstract class Katalog {
         return originalTitle;
     }
 
-<<<<<<< HEAD
-=======
-//    public String getOriginalLanguage() {
-//        return originalLanguage;
-//    }
-
->>>>>>> f06c9266104ac9b6156f5b30189cda8740b14d76
     public String getBackdropPath() {
         return backdropPath;
     }
 
-<<<<<<< HEAD
-=======
-//    public boolean getAdult() {
-//        return adult;
-//    }
-
->>>>>>> f06c9266104ac9b6156f5b30189cda8740b14d76
     public int getId() {
         return id;
     }
@@ -84,7 +51,6 @@ public abstract class Katalog {
         return posterPath;
     }
 
-<<<<<<< HEAD
     public static ArrayList<Katalog> cursorToArrayKatalog(Cursor katalogCursor) {
         ArrayList<Katalog> listKatalog = new ArrayList<>();
         while (katalogCursor.moveToNext()) {
@@ -102,15 +68,6 @@ public abstract class Katalog {
 
         return listKatalog;
     }
-=======
-//    public boolean getVideo() {
-//        return video;
-//    }
-//
-//    public int getVoteCount() {
-//        return voteCount;
-//    }
->>>>>>> f06c9266104ac9b6156f5b30189cda8740b14d76
 
 //    public static Katalog cursorToKatalog(Cursor katalogCursor) {
 //        katalogCursor.moveToFirst();

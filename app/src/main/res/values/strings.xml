@@ -20,7 +20,6 @@
     <string name="str_favorite">Favorite</string>
     <string name="str_beranda">Home</string>
     <string name="str_empty">There is no data that can be displayed</string>
-<<<<<<< HEAD
     <string name="cari">Cari</string>
     <string name="str_dailyreminder">Daily Reminder</string>
     <string name="str_releasereminder">Release Reminder</string>
@@ -29,8 +28,6 @@
     <string name="str_dailyrminder_text">We have good movie to look, so lets check it out!</string>
     <string name="str_releasereminder_summary">Provides information about movies released today</string>
     <string name="str_dailyreminder_summary">Provides information to invite you to see the latest movie</string>
-=======
->>>>>>> f06c9266104ac9b6156f5b30189cda8740b14d76
 
 
 </resources>

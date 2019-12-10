@@ -50,7 +50,6 @@ public class MovieFragment extends Fragment {
         lnError = view.findViewById(R.id.lnError);
         lnEmpty = view.findViewById(R.id.lnEmpty);
 
-<<<<<<< HEAD:app/src/main/java/id/nizwar/katalogmovie/fragments/beranda/MovieFragment.java
         view.findViewById(R.id.floatButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,13 +59,6 @@ public class MovieFragment extends Fragment {
                 startActivity(intent);
             }
         });
-=======
-        recMovie.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
-
-        recMovie.setVisibility(View.GONE);
-        lnError.setVisibility(View.GONE);
-        lnEmpty.setVisibility(View.GONE);
->>>>>>> f06c9266104ac9b6156f5b30189cda8740b14d76:app/src/main/java/id/nizwar/katalogmovie/fragments/beranda/Movie.java
 
         recMovie.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
         swiper = view.findViewById(R.id.swiper);
@@ -85,14 +77,7 @@ public class MovieFragment extends Fragment {
     }
 
     private void getMovies() {
-<<<<<<< HEAD:app/src/main/java/id/nizwar/katalogmovie/fragments/beranda/MovieFragment.java
         showLoading();
-=======
-        lnError.setVisibility(View.GONE);
-        pbLoading.setVisibility(View.VISIBLE);
-        recMovie.setVisibility(View.GONE);
-        lnEmpty.setVisibility(View.GONE);
->>>>>>> f06c9266104ac9b6156f5b30189cda8740b14d76:app/src/main/java/id/nizwar/katalogmovie/fragments/beranda/Movie.java
         StringRequest request = new StringRequest(
                 Request.Method.GET,
                 Env.BASE_URL("movie", null),
@@ -109,7 +94,6 @@ public class MovieFragment extends Fragment {
                             }
                             if (getActivity() != null)
                                 recMovie.setAdapter(new CustomRecyclerAdapter(getActivity(), listMovie, 0));
-<<<<<<< HEAD:app/src/main/java/id/nizwar/katalogmovie/fragments/beranda/MovieFragment.java
                             if (jsResults.length() > 0) {
                                 showList();
                             } else {
@@ -117,37 +101,13 @@ public class MovieFragment extends Fragment {
                             }
                         } catch (JSONException e) {
                             showError();
-=======
-                            lnError.setVisibility(View.GONE);
-                            pbLoading.setVisibility(View.GONE);
-                            if(jsResults.length() > 0 ) {
-                                lnEmpty.setVisibility(View.GONE);
-                                recMovie.setVisibility(View.VISIBLE);
-                            }else{
-                                lnEmpty.setVisibility(View.VISIBLE);
-                                recMovie.setVisibility(View.GONE);
-                            }
-                        } catch (JSONException e) {
-                            lnError.setVisibility(View.VISIBLE);
-                            pbLoading.setVisibility(View.GONE);
-                            recMovie.setVisibility(View.GONE);
-                            lnEmpty.setVisibility(View.GONE);
->>>>>>> f06c9266104ac9b6156f5b30189cda8740b14d76:app/src/main/java/id/nizwar/katalogmovie/fragments/beranda/Movie.java
                         }
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-<<<<<<< HEAD:app/src/main/java/id/nizwar/katalogmovie/fragments/beranda/MovieFragment.java
                         showError();
-=======
-                        swiper.setRefreshing(false);
-                        lnError.setVisibility(View.VISIBLE);
-                        pbLoading.setVisibility(View.GONE);
-                        lnEmpty.setVisibility(View.GONE);
-                        recMovie.setVisibility(View.GONE);
->>>>>>> f06c9266104ac9b6156f5b30189cda8740b14d76:app/src/main/java/id/nizwar/katalogmovie/fragments/beranda/Movie.java
                     }
                 }
         );
